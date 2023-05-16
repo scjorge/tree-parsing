@@ -1,13 +1,41 @@
-from typing import Dict, List
+from abc import ABC, abstractmethod
 from copy import deepcopy
+from typing import Any, Dict, List
 
 
-class Tree:
+class BaseTree(ABC):
+    @abstractmethod
+    def tree_from_list(self, record_lst: List[Dict]) -> List[Dict]:
+        ...
+
+    @abstractmethod
+    def list_from_tree(self, record_lst: List[Dict]) -> List[Dict]:
+        ...
+
+
+class MixinTree:
+    def __init__(self) -> None:
+        self._flow_key = "flow"
+
+    def make_parent_flow(self, node: Dict, parent_number: int) -> None:
+        node[self._flow_key] = f"{parent_number + 1}"
+
+    def make_child_flow(
+        self, node: Dict, child_number: int, parent_number: int
+    ) -> None:
+        flow = f"{parent_number}-{child_number + 1}"
+        node[self._flow_key] = flow
+
+    def new_node(self, node: Dict) -> None:
+        return
+
+
+class Tree(BaseTree, MixinTree):
     def __init__(
         self,
         id_key: str = "id",
         parent_key: str = "parent",
-        parent_start: str = "0",
+        parent_start: Any = "0",
         child_key: str = "children",
         flow_key: str = "flow",
         flow: bool = True,
@@ -26,7 +54,8 @@ class Tree:
         for node in record_lst:
             if str(node[self._parent_key]) == str(self._parent_start):
                 if self._flow:
-                    self._make_parent_flow(node, parent_number)
+                    self.make_parent_flow(node, parent_number)
+                    self.new_node(node)
                     parent_number += 1
                 final_tree.append(node)
                 self._build_leaf(node, record_lst)
@@ -54,7 +83,8 @@ class Tree:
             node[self._child_key] = child_lst
             for child in child_lst:
                 if self._flow:
-                    self._make_child_flow(child, child_number, node[self._flow_key])
+                    self.make_child_flow(child, child_number, node[self._flow_key])
+                    self.new_node(child)
                     child_number += 1
                 self._build_leaf(child, record_lst)
 
@@ -65,12 +95,3 @@ class Tree:
             if node[self._id_key] == parent:
                 child_lst.append(item)
         return child_lst
-
-    def _make_parent_flow(self, node: Dict, parent_number: int) -> None:
-        node[self._flow_key] = f"{parent_number + 1}"
-
-    def _make_child_flow(
-        self, node: Dict, child_number: int, parent_number: int
-    ) -> None:
-        flow = f"{parent_number}-{child_number + 1}"
-        node[self._flow_key] = flow
