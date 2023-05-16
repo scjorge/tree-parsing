@@ -15,7 +15,7 @@ class BaseTree(ABC):
 
 class MixinTree:
     def __init__(self) -> None:
-        self._flow_key = "flow"
+        self._flow_key: str
 
     def make_parent_flow(self, node: Dict, parent_number: int) -> None:
         node[self._flow_key] = f"{parent_number + 1}"
@@ -53,9 +53,9 @@ class Tree(BaseTree, MixinTree):
         parent_number = 0
         for node in record_lst:
             if str(node[self._parent_key]) == str(self._parent_start):
+                self.new_node(node)
                 if self._flow:
                     self.make_parent_flow(node, parent_number)
-                    self.new_node(node)
                     parent_number += 1
                 final_tree.append(node)
                 self._build_leaf(node, record_lst)
@@ -82,9 +82,9 @@ class Tree(BaseTree, MixinTree):
         if child_lst:
             node[self._child_key] = child_lst
             for child in child_lst:
+                self.new_node(child)
                 if self._flow:
                     self.make_child_flow(child, child_number, node[self._flow_key])
-                    self.new_node(child)
                     child_number += 1
                 self._build_leaf(child, record_lst)
 
