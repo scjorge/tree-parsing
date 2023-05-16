@@ -66,11 +66,11 @@ class Tree:
                 child_lst.append(item)
         return child_lst
 
-    def _make_parent_flow(self, node: Dict, number: int) -> None:
-        node[self._flow_key] = f"{number + 1}"
+    def _make_parent_flow(self, node: Dict, parent_number: int) -> None:
+        node[self._flow_key] = f"{parent_number + 1}"
 
     def _make_child_flow(
-        self, child: Dict, child_number: int, parent_number: int
+        self, node: Dict, child_number: int, parent_number: int
     ) -> None:
         flow = f"{parent_number}-{child_number + 1}"
-        child[self._flow_key] = flow
+        node[self._flow_key] = flow
