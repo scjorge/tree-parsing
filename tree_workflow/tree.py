@@ -5,11 +5,11 @@ from typing import Any, Dict, List
 
 class BaseTree(ABC):
     @abstractmethod
-    def tree_from_list(self, record_lst: List[Dict]) -> List[Dict]:
+    def tree_from_list(self, record_list: List[Dict]) -> List[Dict]:
         ...
 
     @abstractmethod
-    def list_from_tree(self, record_lst: List[Dict]) -> List[Dict]:
+    def list_from_tree(self, record_list: List[Dict]) -> List[Dict]:
         ...
 
 
@@ -48,21 +48,23 @@ class Tree(BaseTree, MixinTree):
         self._flow: bool = flow
         self._final_tree: List = []
 
-    def tree_from_list(self, record_lst: List[Dict]) -> List[Dict]:
-        final_tree = []
+    def tree_from_list(self, record_list: List[Dict]) -> List[Dict]:
+        local_record_list = deepcopy(record_list)
+        trees = []
         parent_number = 0
-        for node in record_lst:
+        for node in local_record_list:
             if str(node[self._parent_key]) == str(self._parent_start):
                 self.new_node(node)
                 if self._flow:
                     self.make_parent_flow(node, parent_number)
                     parent_number += 1
-                final_tree.append(node)
-                self._build_leaf(node, record_lst)
-        return final_tree
+                trees.append(node)
+                self._build_leaf(node, local_record_list)
+        return trees
 
-    def list_from_tree(self, record_lst: List[Dict]) -> List[Dict]:
-        for tree in record_lst:
+    def list_from_tree(self, record_list: List[Dict]) -> List[Dict]:
+        local_record_list = deepcopy(record_list)
+        for tree in local_record_list:
             self._build_list(tree)
         return self._final_tree
 
@@ -76,8 +78,8 @@ class Tree(BaseTree, MixinTree):
                 for child in node[self._child_key]:
                     self._build_list(child)
 
-    def _build_leaf(self, node: Dict, record_lst: List) -> None:
-        child_lst = self._get_child(node, record_lst)
+    def _build_leaf(self, node: Dict, record_list: List) -> None:
+        child_lst = self._get_child(node, record_list)
         child_number = 0
         if child_lst:
             node[self._child_key] = child_lst
@@ -86,11 +88,11 @@ class Tree(BaseTree, MixinTree):
                 if self._flow:
                     self.make_child_flow(child, child_number, node[self._flow_key])
                     child_number += 1
-                self._build_leaf(child, record_lst)
+                self._build_leaf(child, record_list)
 
-    def _get_child(self, node: Dict, record_lst: List) -> List:
+    def _get_child(self, node: Dict, record_list: List) -> List:
         child_lst = []
-        for item in record_lst:
+        for item in record_list:
             parent = item[self._parent_key]
             if node[self._id_key] == parent:
                 child_lst.append(item)

@@ -43,16 +43,17 @@ final_tree_without_flow_key = [
 ]
 
 
-def test_tree_from_list_without_flow_key():
-    trr = Tree(flow=False)
-    tree = trr.tree_from_list(lst)
-    assert tree == final_tree_without_flow_key
-
-
 def test_tree_from_list():
     tr = Tree()
     tree = tr.tree_from_list(lst)
     assert tree == final_tree_with_flow_key
+
+
+def test_tree_from_list_without_flow_key():
+    trr = Tree(flow=False)
+    tree = trr.tree_from_list(lst)
+    print(tree, "jjjjj")
+    assert tree == final_tree_without_flow_key
 
 
 def test_list_from_tree():
