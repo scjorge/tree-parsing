@@ -1,6 +1,6 @@
-site_name: Tree Tools
-repo_url: https://github.com/scjorge/tree-tools
-repo_name: scjorge/tree-tools
+site_name: Tree Parsing
+repo_url: https://github.com/scjorge/tree-parsing
+repo_name: scjorge/tree-parsing
 edit_uri: tree/master/docs
 
 nav:

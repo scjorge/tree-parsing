@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./tree_tools
+        working-directory: ./tree_parsing
         
     steps:
       - name: Action Checkout

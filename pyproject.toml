@@ -1,15 +1,15 @@
 [tool.poetry]
-name = "tree-tools"
+name = "tree-parsing"
 version = "0.1.0"
 description = "library to work with tree and lists"
 license = "MIT"
 authors = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
 maintainers = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
 readme = "README.md"
-repository = "https://github.com/scjorge/tree-tools"
-documentation = "https://tree-tools.readthedocs.io/en/latest/"
+repository = "https://github.com/scjorge/tree-parsing"
+documentation = "https://tree-parsing.readthedocs.io/en/latest/"
 keywords = ["node", "tree", "json", "json-schema", "hints", "parsin", "parsing", "workflow"]
-packages = [{include = "tree_tools"}]
+packages = [{include = "tree_parsing"}]
 classifiers = [
     "Natural Language :: English",
     "Intended Audience :: Developers",

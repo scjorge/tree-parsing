@@ -1,21 +1,21 @@
-# Tree Tools
+# Tree Parsing
 
-[![CI](https://github.com/scjorge/tree-tools/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/tree-tools/actions)
-[![codecov](https://codecov.io/gh/scjorge/tree-tools/branch/master/graph/badge.svg?token=0HF8XRJDV1)](https://codecov.io/gh/scjorge/tree-tools)
-[![pypi](https://img.shields.io/pypi/v/tree-tools)](https://pypi.org/project/tree-tools/)
-[![pypi](https://img.shields.io/pypi/pyversions/tree-tools)](https://pypi.org/project/tree-tools/)
-[![license](https://img.shields.io/pypi/l/tree-tools)](https://github.com/scjorge/tree-tools/blob/master/LICENSE)
+[![CI](https://github.com/scjorge/tree-parsing/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/tree-parsing/actions)
+[![codecov](https://codecov.io/gh/scjorge/tree-parsing/branch/master/graph/badge.svg?token=0HF8XRJDV1)](https://codecov.io/gh/scjorge/tree-parsing)
+[![pypi](https://img.shields.io/pypi/v/tree-parsing)](https://pypi.org/project/tree-parsing/)
+[![pypi](https://img.shields.io/pypi/pyversions/tree-parsing)](https://pypi.org/project/tree-parsing/)
+[![license](https://img.shields.io/pypi/l/tree-parsing)](https://github.com/scjorge/tree-parsing/blob/master/LICENSE)
 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/scjorge/tree-tools/master/docs/assets/logo.png" width='200'/>
+    <img src="https://raw.githubusercontent.com/scjorge/tree-parsing/master/docs/assets/logo.png" width='200'/>
 </p>
 
 ---
 
-Documentation: https://tree-tools.readthedocs.io/en/latest/
+Documentation: https://tree-parsing.readthedocs.io/en/latest/
 
-Source Code: https://github.com/scjorge/tree-tools
+Source Code: https://github.com/scjorge/tree-parsing
 
 ---
 
@@ -36,13 +36,13 @@ Installation is as simple:
 ### With pip
 
 ```
-pip install tree-tools
+pip install tree-parsing
 ```
 
 ### With Poetry
 
 ```
-poetry add tree-tools
+poetry add tree-parsing
 ```
 
 ## Exemplos
@@ -52,7 +52,7 @@ poetry add tree-tools
 ```{.py3 linenums=1}
 import json
 
-from tree_tools import Tree
+from tree_parsing import Tree
 
 
 list_tree = [
@@ -109,7 +109,7 @@ Output:
 ```{.py3 linenums=1}
 import json
 
-from tree_tools import Tree
+from tree_parsing import Tree
 
 
 my_tree = [
@@ -187,7 +187,7 @@ Output:
 import json
 from typing import Dict
 
-from tree_tools import Tree
+from tree_parsing import Tree
 
 
 list_tree = [
