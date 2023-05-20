@@ -1,6 +1,7 @@
 # Tree Workflow
 
-[![codecov](https://codecov.io/gh/scjorge/pydantic_br/branch/master/graph/badge.svg?token=1XVEXSBU69)](https://codecov.io/gh/scjorge/pydantic_br)
+[![CI](https://github.com/scjorge/tree-workflow/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/tree-workflow/actions)
+[![codecov](https://codecov.io/gh/scjorge/tree-workflow/branch/master/graph/badge.svg?token=0HF8XRJDV1)](https://codecov.io/gh/scjorge/tree-workflow)
 [![pypi](https://img.shields.io/pypi/v/tree-workflow)](https://pypi.org/project/tree-workflow/)
 [![pypi](https://img.shields.io/pypi/pyversions/tree-workflow)](https://pypi.org/project/tree-workflow/)
 [![license](https://img.shields.io/pypi/l/tree-workflow)](https://github.com/scjorge/pydantic_br/blob/master/LICENSE)
@@ -9,8 +10,8 @@
 <p align="center">
     <img src="./docs/assets/logo.png" width='200'/>
 </p>
----
 
+---
 
 This library lets you work with trees and lists.
 
