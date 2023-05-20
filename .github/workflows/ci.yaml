@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: ./tree_workflow
+        working-directory: ./tree_tools
         
     steps:
       - name: Action Checkout

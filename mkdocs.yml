@@ -1,6 +1,6 @@
-site_name: Tree Workflow
-repo_url: https://github.com/scjorge/tree-workflow
-repo_name: scjorge/tree-workflow
+site_name: Tree Tools
+repo_url: https://github.com/scjorge/tree-tools
+repo_name: scjorge/tree-tools
 edit_uri: tree/master/docs
 
 nav:

@@ -1,21 +1,21 @@
-# Tree Workflow
+# Tree Tools
 
-[![CI](https://github.com/scjorge/tree-workflow/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/tree-workflow/actions)
-[![codecov](https://codecov.io/gh/scjorge/tree-workflow/branch/master/graph/badge.svg?token=0HF8XRJDV1)](https://codecov.io/gh/scjorge/tree-workflow)
-[![pypi](https://img.shields.io/pypi/v/tree-workflow)](https://pypi.org/project/tree-workflow/)
-[![pypi](https://img.shields.io/pypi/pyversions/tree-workflow)](https://pypi.org/project/tree-workflow/)
-[![license](https://img.shields.io/pypi/l/tree-workflow)](https://github.com/scjorge/tree-workflow/blob/master/LICENSE)
+[![CI](https://github.com/scjorge/tree-tools/workflows/CI/badge.svg?event=push)](https://github.com/scjorge/tree-tools/actions)
+[![codecov](https://codecov.io/gh/scjorge/tree-tools/branch/master/graph/badge.svg?token=0HF8XRJDV1)](https://codecov.io/gh/scjorge/tree-tools)
+[![pypi](https://img.shields.io/pypi/v/tree-tools)](https://pypi.org/project/tree-tools/)
+[![pypi](https://img.shields.io/pypi/pyversions/tree-tools)](https://pypi.org/project/tree-tools/)
+[![license](https://img.shields.io/pypi/l/tree-tools)](https://github.com/scjorge/tree-tools/blob/master/LICENSE)
 
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/scjorge/tree-workflow/master/docs/assets/logo.png" width='200'/>
+    <img src="https://raw.githubusercontent.com/scjorge/tree-tools/master/docs/assets/logo.png" width='200'/>
 </p>
 
 ---
 
-Documentation: https://tree-workflow.readthedocs.io/en/latest/
+Documentation: https://tree-tools.readthedocs.io/en/latest/
 
-Source Code: https://github.com/scjorge/tree-workflow
+Source Code: https://github.com/scjorge/tree-tools
 
 ---
 
@@ -30,6 +30,21 @@ So you can:
 - Do something for each node
 
 
+## Install
+Installation is as simple:
+
+### With pip
+
+```
+pip install tree-tools
+```
+
+### With Poetry
+
+```
+poetry add tree-tools
+```
+
 ## Exemplos
 
 ### Tree From List 
@@ -37,7 +52,7 @@ So you can:
 ```python
 import json
 
-from tree_workflow.tree import Tree
+from tree_tools.tree import Tree
 
 
 list_tree = [
@@ -94,7 +109,7 @@ Output:
 ```python
 import json
 
-from tree_workflow.tree import Tree
+from tree_tools.tree import Tree
 
 
 my_tree = [
@@ -172,7 +187,7 @@ Output:
 import json
 from typing import Dict
 
-from tree_workflow.tree import Tree
+from tree_tools.tree import Tree
 
 
 list_tree = [
