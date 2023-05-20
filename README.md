@@ -4,14 +4,21 @@
 [![codecov](https://codecov.io/gh/scjorge/tree-workflow/branch/master/graph/badge.svg?token=0HF8XRJDV1)](https://codecov.io/gh/scjorge/tree-workflow)
 [![pypi](https://img.shields.io/pypi/v/tree-workflow)](https://pypi.org/project/tree-workflow/)
 [![pypi](https://img.shields.io/pypi/pyversions/tree-workflow)](https://pypi.org/project/tree-workflow/)
-[![license](https://img.shields.io/pypi/l/tree-workflow)](https://github.com/scjorge/pydantic_br/blob/master/LICENSE)
+[![license](https://img.shields.io/pypi/l/tree-workflow)](https://github.com/scjorge/tree-workflow/blob/master/LICENSE)
 
 
 <p align="center">
-    <img src="./docs/assets/logo.png" width='200'/>
+    <img src="https://raw.githubusercontent.com/scjorge/tree-workflow/master/docs/assets/logo.png" width='200'/>
 </p>
 
 ---
+
+Documentation: https://tree-workflow.readthedocs.io/en/latest/
+
+Source Code: https://github.com/scjorge/tree-workflow
+
+---
+
 
 This library lets you work with trees and lists.
 
@@ -19,7 +26,7 @@ So you can:
 
 - Make tree when you have all nodes on the list
 - Convert the Tree to lists of nodes
-- Customize how to generate 'flow key'
+- Customize how to generate 'flow key', 'children key'
 - Do something for each node
 
 
@@ -29,6 +36,7 @@ So you can:
 
 ```python
 import json
+
 from tree_workflow.tree import Tree
 
 
@@ -40,7 +48,7 @@ list_tree = [
     {"id": 5, "parent": 0},
 ]
 
-tr = Tree(id_key="id", parent_key="parent", parent_start="0")
+tr = Tree(id_key="id", parent_key="parent", parent_start="0", child_key="children")
 tree = tr.tree_from_list(list_tree)
 print(json.dumps(tree, indent=4))
 ```
@@ -85,6 +93,7 @@ Output:
 
 ```python
 import json
+
 from tree_workflow.tree import Tree
 
 
@@ -154,5 +163,71 @@ Output:
   "parent": 0,
   "flow": "2"
  }
+]
+```
+
+### Do something on the node
+
+```python
+import json
+from typing import Dict
+
+from tree_workflow.tree import Tree
+
+
+list_tree = [
+    {"id": 1, "parent": 0},
+    {"id": 2, "parent": 1},
+    {"id": 3, "parent": 1},
+    {"id": 4, "parent": 2},
+    {"id": 5, "parent": 0},
+]
+
+
+class MyTree(Tree):
+    def new_node(self, node: Dict) -> None:
+        if node['id'] == 2:
+            node['new_key'] = 'new value'
+        
+
+tr = MyTree(id_key="id", parent_key="parent", parent_start="0", child_key="children")
+tree = tr.tree_from_list(list_tree)
+print(json.dumps(tree, indent=4))
+```
+
+Output:
+
+```
+[
+    {
+        "id": 1,
+        "parent": 0,
+        "flow": "1",
+        "children": [
+            {
+                "id": 2,
+                "parent": 1,
+                "new_key": "new value",
+                "flow": "1-1",
+                "children": [
+                    {
+                        "id": 4,
+                        "parent": 2,
+                        "flow": "1-1-1"
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "parent": 1,
+                "flow": "1-2"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "parent": 0,
+        "flow": "2"
+    }
 ]
 ```
