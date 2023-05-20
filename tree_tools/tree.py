@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 from copy import deepcopy
 from typing import Any, Dict, List
 
+__all__ = ["Tree"]
+
 
 class BaseTree(ABC):
     @abstractmethod

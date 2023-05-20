@@ -52,7 +52,7 @@ poetry add tree-tools
 ```python
 import json
 
-from tree_tools.tree import Tree
+from tree_tools import Tree
 
 
 list_tree = [
@@ -109,7 +109,7 @@ Output:
 ```python
 import json
 
-from tree_tools.tree import Tree
+from tree_tools import Tree
 
 
 my_tree = [
@@ -187,7 +187,7 @@ Output:
 import json
 from typing import Dict
 
-from tree_tools.tree import Tree
+from tree_tools import Tree
 
 
 list_tree = [

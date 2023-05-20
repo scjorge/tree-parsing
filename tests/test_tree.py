@@ -1,4 +1,4 @@
-from tree_tools.tree import Tree
+from tree_tools import Tree
 
 list_tree = [
     {"id": 1, "parent": 0},
