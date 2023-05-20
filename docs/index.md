@@ -49,7 +49,7 @@ poetry add tree-tools
 
 ### Tree From List 
 
-```python
+```{.py3 linenums=1}
 import json
 
 from tree_tools import Tree
@@ -106,7 +106,7 @@ Output:
 
 ### List From Tree
 
-```python
+```{.py3 linenums=1}
 import json
 
 from tree_tools import Tree
@@ -183,7 +183,7 @@ Output:
 
 ### Do something on the node
 
-```python
+```{.py3 linenums=1}
 import json
 from typing import Dict
 
