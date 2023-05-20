@@ -24,7 +24,7 @@ This library lets you work with trees and lists.
 
 So you can:
 
-- Make tree when you have all nodes on the list
+- Make a tree when you have all nodes in the list
 - Convert the Tree to lists of nodes
 - Customize how to generate 'flow key', 'children key'
 - Do something for each node
