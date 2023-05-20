@@ -29,7 +29,7 @@ theme:
   features:
     - content.code.copy
       
-  language: pt-BR
+  language: en
   logo: assets/logo.png
   favicon: assets/logo.png
 
