@@ -1,0 +1,41 @@
+site_name: Tree Workflow
+repo_url: https://github.com/scjorge/tree-workflow
+repo_name: scjorge/tree-workflow
+edit_uri: tree/master/docs
+
+nav:
+  - Home: index.md
+  - Install: install.md
+  - How To:
+    - Tree From List: usage/tree_from_list.md
+    - List From Tree: usage/list_from_tree.md
+    - Customize: usage/customize.md
+  - Changelog: changelog.md
+
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      toggle:
+        icon: material/weather-night
+        name: Dark Mode
+    - scheme: slate
+      primary: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Light Mode
+  features:
+    - content.code.copy
+      
+  language: pt-BR
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+
+markdown_extensions:
+  - attr_list
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.tilde
