@@ -31,6 +31,9 @@ class MixinTree:
     def new_node(self, node: Dict) -> None:
         return
 
+    def new_node_list(self, node: Dict) -> None:
+        return
+
 
 class Tree(BaseTree, MixinTree):
     def __init__(
@@ -73,6 +76,7 @@ class Tree(BaseTree, MixinTree):
     def _build_list(self, tree):
         tree_new = [tree]
         for node in tree_new:
+            self.new_node_list(node)
             item = deepcopy(node)
             item.pop(self._child_key, None)
             self._final_tree.append(item)
