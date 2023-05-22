@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tree-parsing"
-version = "0.1.0"
+version = "0.1.1"
 description = "library to work with tree and lists"
 license = "MIT"
 authors = ["Jorge Silva <jorgesilva.ti@hotmail.com>"]
