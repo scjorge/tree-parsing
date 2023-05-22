@@ -6,9 +6,8 @@ edit_uri: tree/master/docs
 nav:
   - Home: index.md
   - Install: install.md
-  - How To:
-    - Tree From List: usage/tree_from_list.md
-    - List From Tree: usage/list_from_tree.md
+  - Usage:
+    - Tree and List: usage/tree_from_list.md
     - Customize: usage/customize.md
   - Changelog: changelog.md
 
